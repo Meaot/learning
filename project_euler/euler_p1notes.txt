@@ -1,0 +1,24 @@
+Euler Problem 1
+---------------
+Prompt:
+
+If we list all the natural numbers below 10 that are multiples of 3 or 5, 
+we get 3, 5, 6 and 9. The sum of these multiples is 23. Find the sum of 
+all the multiples of 3 or 5 below 1000.
+
+Thoughts:
+
+I ran p1a the first time and got 266333. Submitted it and found it was wrong.
+Confused, I made p1b and used the modulo (%) method (Which I had thought about
+in bed before going to sleep a few nights earlier but forgotten about. Then I
+searched Google and looked at a method of doing the problem computationally and
+once I saw the modulo sign I made my own attempt at it). Still getting 266333. 
+Then I started p1c using the for-loop and upon working out how to use 'or'
+(the version online used || in a different language) realized that I was double
+counting multiples of both 3 AND 5. This is the key in the wording that is
+crucial. Once I corrected that and got p1c running, I got the correct answer,
+233168.
+
+I then went back and added a for-loop to remove multiples of both 3 and 5 from
+one of the 2 lists. In addition, a bit earlier while working in p1b, I used
+append instead of extend to add new values to the list of multiples.
