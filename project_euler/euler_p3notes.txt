@@ -3,24 +3,22 @@ Euler Problem 3
 Prompt:
 
 The prime factors of 13195 are 5, 7, 13 and 29. What is the largest prime 
-factor of the number 600851475143 ?
+factor of the number 600851475143?
 
 Thoughts:
 
-My initial attempt is below.
+Learning vim is confusing.
 
-def isprime(n):
-    for i in range(2, n):
-        if n%i == 0:
-            return False
-    return True
+About the problem... After doing some reading (read: cheating) online I
+found a solution specific to the problem that looks for the first prime
+factor (71 in this case) then takes the multiplicand as the new number to
+be factored (reducing the search space significantly). I generalized and
+cleaned up this process by using the upper bound for the initial range to
+be examined as sqrt(n) and made it easier for me to understand by making a
+list of all of the prime factors. I use the most naive primality test
+possible but the script still runs very fast.
 
-number = 600851475143
-primeFactors = []
-for j in range(2, number):
-    if number % j == 0 and isprime(j):
-        primeFactors.append(j)
-        
-This produced a memory error, due to the size of the number. My method is
-likely very inefficient. It appears I will have to implement a version of
-Eratosthenes' Sieve... or something.
+Note: in Python 2.X range produces a list while xrange produces a sequence.
+This is the reason my initial attempt (which used range) produced a buffer
+overflow (memory) error.
+
