@@ -1,0 +1,78 @@
+Solved: 8/27/14
+
+Prompt:
+
+A palindromic number reads the same both ways. The largest palindrome made from the product of two 2-digit numbers is 9009 = 91 × 99.
+
+Find the largest palindrome made from the product of two 3-digit numbers.
+
+
+Thoughts:
+
+The key insight for me here was separating the string into two halves which are then compared. When that still failed to yield the correct answer I cheated a bit and read through a post on a similar failure on StackExchange and realized that I was not testing all products of three digit numbers.
+
+Discovering the existence of reversed() and sorted() was also useful. The current program does produce multiples of each palindrome in the list 'palindromes'. This is something to asked/read about in the forum for this problem.
+
+Did not investigate the math of the problem very much at all while attempting to solve.
+
+
+Initial code attempt:
+
+Note - includes environment heading for vim, useful to know for future.
+
+#!/usr/bin/env python
+#coding: utf8
+#
+# Project Euler
+# Problem 4
+#
+# A palindromic number reads the same both ways. The largest palindrome made
+# from the product of two 2-digit numbers is 9009 = 91 × 99.
+#
+# Find the largest palindrome made from the product of two 3-digit numbers.
+#
+
+from datetime import datetime
+startTime = datetime.now()
+
+a = 999
+b = 999
+prod = str(a*b)
+state = True
+
+while True:
+    if prod[0:1] == prod[5:6]:
+        if prod[1:2] == prod[4:5]:
+            if prod[2:3] == prod[3:4]:
+                print int(prod)
+                break
+            else:
+                if state == True:
+                    a -= 1
+                    prod = str(a*b)
+                    state = False
+                else:
+                    b -= 1
+                    prod = str(a*b)
+                    state = True
+        else:
+            if state == True:
+                a -= 1
+                prod = str(a*b)
+                state = False
+            else:
+                b -= 1
+                prod = str(a*b)
+                state = True
+    else:
+        if state == True:
+            a -= 1 
+            prod = str(a*b)
+            state = False
+        else:
+            b -= 1
+            prod = str(a*b)
+            state = True
+
+print 'Execution time: ',(datetime.now()-startTime)
+
