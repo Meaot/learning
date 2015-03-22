@@ -1,3 +1,0 @@
-Questions to ask in discussion posts:
-
-1. Python variable naming conventions - what is the convention for someVariable vs some_variable?
