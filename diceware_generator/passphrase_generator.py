@@ -1,6 +1,6 @@
 #
 # Diceware Passphrase Generator
-# 
+#
 # Generates a random passphrase of a specified number
 # of words chosen from the Diceware wordlist.
 #
@@ -67,9 +67,9 @@ def generate_passphrase():
 	return passphrase
 
 
-print 'Passphrase:', generate_passphrase()
+print generate_passphrase()
 
 
 
 
-		
+
