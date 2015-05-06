@@ -30,12 +30,10 @@ def generate_key():
 	returns: a key for a value in the Diceware dictionary.
 	"""
 	key = ''
-	for i in range(5):
-            tmp = 0
-            for _ in range(4):
-                tmp += ord(os.urandom(1))
-    	    digit = 1 + tmp%6
-	    key += str(digit)
+	while len(key) < 5:
+            digit = ord(os.urandom(1))%8
+            if digit in range(1, 7):
+	       key += str(digit)
 	return key
 
 def generate_passphrase():
